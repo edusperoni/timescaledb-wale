@@ -12,14 +12,10 @@ docker-image: Dockerfile src/wale-rest.py run.sh
 	docker build -t $(ORGANIZATION)/$(TARGET):latest .
 	docker tag $(ORGANIZATION)/$(TARGET):latest $(ORGANIZATION)/$(TARGET):${VERSION}
 	docker tag $(ORGANIZATION)/$(TARGET):latest $(ORGANIZATION)/$(TARGET):${BRANCH}
-	docker tag $(ORGANIZATION)/$(TARGET):latest $(ORGANIZATION)/$(TARGET_LEGACY):${VERSION}
-	docker tag $(ORGANIZATION)/$(TARGET):latest $(ORGANIZATION)/$(TARGET_LEGACY):${BRANCH}
 
 docker-push: docker-image
 	docker push $(ORGANIZATION)/$(TARGET):latest
 	docker push $(ORGANIZATION)/$(TARGET):${VERSION}
-	docker push $(ORGANIZATION)/$(TARGET_LEGACY):latest
-	docker push $(ORGANIZATION)/$(TARGET_LEGACY):${VERSION}
 
 clean:
 	rm -f *~ src/*~
