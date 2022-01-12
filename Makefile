@@ -2,9 +2,9 @@ VERSION=$(shell git describe --always | sed 's|v\(.*\)|\1|')
 BRANCH=$(shell git rev-parse --abbrev-ref HEAD | sed 's|/|-|g')
 OS:=$(shell uname -s | awk '{ print tolower($$1) }')
 ARCH=amd64
-ORGANIZATION=timescale
-TARGET=wal-e
-TARGET_LEGACY=timescaledb-wale
+ORGANIZATION=edusperoni
+TARGET=wal-g
+TARGET_LEGACY=edusperoni-walg
 
 .PHONY: clean docker-image docker-push prepare-for-docker-build
 
